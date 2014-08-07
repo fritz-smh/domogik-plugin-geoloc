@@ -1,0 +1,90 @@
+{
+    "json_version" : 2,
+    "identity": {
+        "author": "Fritz",
+        "author_email": "fritz.smh at gmail.com",
+        "tags": ["gps", "geolocalisation"],
+        "dependencies": [ ],
+        "description": "Allow your smartphone or anything else to send GPS data to this plugin over an url.",
+        "domogik_min_version": "0.4.0",
+        "name": "geoloc",
+        "type": "plugin",
+        "version": "1.0a0"
+    },
+    "configuration": [
+        {
+            "key": "host",
+            "name": "Service ip or hostname",
+            "description": "Ip or hostname of the service which will make the url available.",
+            "default": "0.0.0.0",
+            "required": false,
+            "type": "ipv4"
+        },
+        {
+            "key": "port",
+            "name": "Service port",
+            "description": "Port of the service which will make the url available.",
+            "default": 40445,
+            "required": false,
+            "type": "integer",
+            "min_value" : 1025,
+            "max_value" : 65535
+        }
+    ],
+    "device_types": {
+        "geoloc.position": {
+            "description": "GPS position",
+            "id": "geoloc.position",
+            "name": "GPS position",
+            "commands": [],
+            "sensors": ["position_degrees"],
+            "parameters": [
+                {
+                    "key": "device",
+                    "xpl": true,
+                    "description": "The geolocated device id",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "sensors": {
+        "position_degrees": {
+            "name": "GPS position in degrees",
+            "data_type": "DT_CoordD",
+            "conversion": "",
+            "incremental": false,
+            "history": {
+                "store": true,
+                "duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        }
+    },
+    "xpl_stats": {
+        "position": {
+            "name": "Position",
+            "schema": "sensor.basic",
+            "parameters": {
+                "static": [
+                    {
+                            "key": "type",
+                            "value": "position_degrees"
+                    }
+                ],
+                "device": [],
+                "dynamic": [
+                    {
+                         "key": "current",
+                         "ignore_values": "",
+                         "sensor": "position_degrees"
+                    }
+                ]
+            }
+        }
+    },
+    "commands": {},
+    "xpl_commands": {}
+}

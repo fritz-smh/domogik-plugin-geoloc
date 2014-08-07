@@ -1,4 +1,4 @@
-domogik-plugin-geoloc
+domogik-plugin-teleinfo
 =======================
 
 This is a plugin for Domogik : http://www.domogik.org
