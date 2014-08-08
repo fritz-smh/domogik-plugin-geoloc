@@ -74,7 +74,7 @@ class GeolocManager(XplPlugin):
         self.rest_port = self.get_config("port")
 
         # get the devices list
-        self.devices = self.get_device_list(quit_if_no_device = False)
+        #self.devices = self.get_device_list(quit_if_no_device = False)
 
 
     def run(self):
@@ -121,9 +121,12 @@ if __name__ == "__main__":
     ### decorators for flask
     @app.before_request
     def before_request():
+        #g.devices = "tutu"
+        #g.devices = geoloc
         g.send_xpl_position_degree = geoloc.send_xpl_position_degree
         g.devices = geoloc.devices
         g.get_parameter_for_feature = geoloc.get_parameter_for_feature
+        g.get_data_files_directory = geoloc.get_data_files_directory
 
     ### launch the rest service
     geoloc.run()

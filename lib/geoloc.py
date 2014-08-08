@@ -34,7 +34,7 @@ Implements
 @organization: Domogik
 """
 
-from flask import Flask, g
+from flask import Flask, g, send_from_directory
 from domogik_packages.plugin_geoloc.bin.geoloc import app
 import traceback
 
@@ -53,6 +53,10 @@ def root():
     api += "<li><pre>GET /position_degrees/[string:device id]/[string:gps position in degrees]</pre></li>"
     api += "</ul>"
     return api, ok
+
+@app.route('/demo', methods = ["GET"])
+def demo():  
+    return send_from_directory("/media/stock/domotique/git/domogik-plugin-geoloc/data/", 'gps.html')
 
 @app.route('/position_degrees/<string:device>/<string:data>', methods = ["GET"])
 def position_degrees(device, data):
