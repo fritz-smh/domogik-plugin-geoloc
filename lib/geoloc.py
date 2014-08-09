@@ -37,6 +37,7 @@ Implements
 from flask import Flask, g, send_from_directory
 from domogik_packages.plugin_geoloc.bin.geoloc import app
 import traceback
+import os
 
 ok = 200
 error = 500
@@ -48,15 +49,16 @@ debug = True
 
 @app.route('/')
 def root():
-    api = "<h1>Domogik geoloc plugin</h1>"
-    api += "<ul>"
-    api += "<li><pre>GET /position_degrees/[string:device id]/[string:gps position in degrees]</pre></li>"
-    api += "</ul>"
-    return api, ok
+    return send_from_directory("/media/stock/domotique/git/domogik-plugin-geoloc/data/", 'index.html')
+    #api = "<h1>Domogik geoloc plugin</h1>"
+    #api += "<ul>"
+    #api += "<li><pre>GET /position_degrees/[string:device id]/[string:gps position in degrees]</pre></li>"
+    #api += "</ul>"
+    #return api, ok
 
 @app.route('/demo', methods = ["GET"])
 def demo():  
-    return send_from_directory("/media/stock/domotique/git/domogik-plugin-geoloc/data/", 'gps.html')
+    return send_from_directory(g.get_data_files_directory(), 'gps.html')
 
 @app.route('/position_degrees/<string:device>/<string:data>', methods = ["GET"])
 def position_degrees(device, data):
@@ -87,4 +89,19 @@ def position_degrees(device, data):
     else:
         return "Position successfully processed : {0}".format(data), ok
 
+
+@app.route('/static/css/<string:file>', methods = ["GET"])
+def static_css(file):
+    """ we override /static which is already handles by flask because when we create the app = Flask(...) 
+        we are not yet able to know the static directory and so set it...
+    """
+    return send_from_directory("{0}/".format(os.path.join(g.get_data_files_directory(), "static/css")), file)
+
+
+@app.route('/static/js/<string:file>', methods = ["GET"])
+def static_js(file):
+    """ we override /static which is already handles by flask because when we create the app = Flask(...) 
+        we are not yet able to know the static directory and so set it...
+    """
+    return send_from_directory("{0}/".format(os.path.join(g.get_data_files_directory(), "static/js")), file)
 

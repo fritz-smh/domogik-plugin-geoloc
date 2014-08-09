@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Domogik plugin Geoloc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap-3.1.1.min.css" rel="stylesheet" media="screen">
+    <style>
+      #map-canvas {
+        height: 300px;
+        width: 100%;
+        margin-top: 1em;
+      } 
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Domogik plugin Geoloc</h1>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">API</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li>GET /position_degrees/[string:device id]/[string:gps position in degrees]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Get your current position!</h3>
+        </div>
+        <div class="panel-body">
+          <button class="btn btn-primary" onclick="findMe()">Get my position</button>
+          <div id="position">
+          </div>
+          <div id="map-canvas">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type='text/javascript'>//<![CDATA[
+
+      // display a map by default
+      var map;
+      function initialize() {
+          var mapOptions = {
+              zoom: 5,
+              center: new google.maps.LatLng(47, 1)
+          };
+          map = new google.maps.Map(document.getElementById('map-canvas'),
+              mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+      function findMe() {
+          if (navigator.geolocation) {
+              var timeoutVal = 10 * 1000 * 1000;
+              navigator.geolocation.getCurrentPosition(
+                  displayData,
+                  displayError,
+                  { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+              );
+          }
+          else {
+              displayData("Geolocation is not supported by this browser");
+          }
+      }
+
+      function displayData(position) {
+          // just display position
+          positionContent = '<ul>';
+          positionContent += '<li>longitude : ' + position.coords.longitude + '</li>';
+          positionContent += '<li>latitude : ' + position.coords.latitude + '</li>';
+          positionContent += '<li>accuracy : ' + position.coords.accuracy + '</li>';
+          positionContent += '</ul>';
+          $("#position").replaceWith(positionContent);
+
+          // google map
+          var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+          var mapOptions = {
+              zoom: 15,
+              center: coords,
+              mapTypeControl: true,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+
+          // create the map, and place it in the HTML map div
+          map = new google.maps.Map(
+              document.getElementById("map-canvas"), mapOptions
+          );
+
+          // place the initial marker
+          var marker = new google.maps.Marker({
+              position: coords,
+              map: map,
+              title: "Current location!"
+          });
+      }
+      
+      function displayError(error) {
+          var errors = {
+              1: 'Permission denied',
+              2: 'Position unavailable',
+              3: 'Request timeout'
+          };
+          alert("Error: " + errors[error.code]);
+      }
+     
+      //]]>
+    </script>
+    <script src="static/js/jquery-2.1.0.min.js"></script>
+    <script src="static/js/bootstrap-3.1.1.min.js"></script>
+  </body>
+</html>
+

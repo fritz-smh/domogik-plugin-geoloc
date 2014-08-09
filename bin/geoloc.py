@@ -42,6 +42,8 @@ import threading
 import traceback
 import re
 from flask import Flask, g
+from flask_bootstrap import Bootstrap
+
 
 
 
@@ -50,6 +52,8 @@ from flask import Flask, g
 app = Flask(__name__)
 # the import is made here because these are the url related functions
 from domogik_packages.plugin_geoloc.lib.geoloc import *
+
+
 
 
 
@@ -116,6 +120,7 @@ class GeolocManager(XplPlugin):
 ### main
 if __name__ == "__main__":
     ### Instantiate the plugin manager
+    Bootstrap(app)
     geoloc = GeolocManager(app)
 
     ### decorators for flask
