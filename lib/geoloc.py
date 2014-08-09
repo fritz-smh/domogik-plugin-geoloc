@@ -50,15 +50,6 @@ debug = True
 @app.route('/')
 def root():
     return send_from_directory("/media/stock/domotique/git/domogik-plugin-geoloc/data/", 'index.html')
-    #api = "<h1>Domogik geoloc plugin</h1>"
-    #api += "<ul>"
-    #api += "<li><pre>GET /position_degrees/[string:device id]/[string:gps position in degrees]</pre></li>"
-    #api += "</ul>"
-    #return api, ok
-
-@app.route('/demo', methods = ["GET"])
-def demo():  
-    return send_from_directory(g.get_data_files_directory(), 'gps.html')
 
 @app.route('/position_degrees/<string:device>/<string:data>', methods = ["GET"])
 def position_degrees(device, data):
