@@ -63,7 +63,10 @@ def position_degrees(device, data):
             break
         # device not found
         if not found:
-            return "No device '{0}' exists".format(device), error
+            if debug:
+                return "No device '{0}' exists. Existing devices : {1}".format(device, g.devices), error
+            else:
+                return "No device '{0}' exists".format(device), error
         
         # check the position format
         # TODO
