@@ -2,6 +2,11 @@
 Development informations
 ========================
 
+Tests
+=====
+
+There is no automated tests for this plugin.
+
 Timeout on sensors
 ==================
 
