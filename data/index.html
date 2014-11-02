@@ -23,7 +23,31 @@
         </div>
         <div class="panel-body">
           <ul>
-            <li>GET /position_degrees/[string:device id]/[string:gps position in degrees]</li>
+            <li>GET /position/[string:device id]/[string:gps position in degrees]</li>
+            <ul>
+              <li>Used by Tasker</li>
+              <li>Used by This webpage</li>
+            </ul>
+            <li>POST /position/[string:device id]/
+            </li>
+            <ul>
+              <li>Used by <a href="https://github.com/jcs/triptracker">Trip Tracker Android application</a>.
+                Example of sent data (only longitude and latitude are used for the max index) : 
+                <pre>
+locations[0][longitude] = -1.4115941102186852
+locations[0][latitude] = 47.56935763509281
+locations[0][time] = 1414950119346
+locations[0][speed] = 0.3824184
+locations[1][longitude] = -1.4115050539275859
+locations[1][latitude] = 47.56956470569191
+locations[1][time] = 1414958966722
+locations[1][speed] = 1.5556983 </pre>
+              </li>
+            </ul>
+            <!--
+            <li>GET /position/[string:device id]/[string:gps position in degrees minutes]</li>
+            <li>GET /position/[string:device id]/[string:gps position in degrees minutes seconds]</li>
+            -->
           </ul>
         </div>
       </div>
@@ -75,11 +99,15 @@
 
       function displayData(position) {
           // just display position
-          positionContent = '<ul>';
+          positionContent = '<p>';
+          positionContent += 'Example url for your position with a device named "foobar" : ';
+          positionContent += document.URL+'position/foobar/'+position.coords.longitude+','+position.coords.latitude;
+          positionContent += '<ul>';
           positionContent += '<li>longitude : ' + position.coords.longitude + '</li>';
           positionContent += '<li>latitude : ' + position.coords.latitude + '</li>';
           positionContent += '<li>accuracy : ' + position.coords.accuracy + '</li>';
           positionContent += '</ul>';
+          positionContent += '</p>';
           $("#position").replaceWith(positionContent);
 
           // google map

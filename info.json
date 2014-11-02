@@ -54,6 +54,7 @@
             "data_type": "DT_CoordD",
             "conversion": "",
             "incremental": false,
+            "timeout" : 0,
             "history": {
                 "store": true,
                 "duplicate": false,
