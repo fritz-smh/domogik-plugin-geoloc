@@ -1,0 +1,55 @@
+.. _index:
+
+=============
+Plugin geoloc
+=============
+
+Purpose
+=======
+
+The geoloc plugin is used to follow people or object. This plugin implements a webserver which can be called on various url by a smartphone or any device connected to internet.
+
+Dependencies
+============
+
+There is no dependency.
+
+Plugin configuration
+====================
+
+You have to configure the webserver parameters for this plugin:
+
+===================== =========================== ======================================================================
+Key                   Type                        Description
+===================== =========================== ======================================================================
+host                  ipv4                        Ip or hostname of the service which will make the url available.
+--------------------- --------------------------- ----------------------------------------------------------------------
+port                  integer                     Port of the service which will make the url available.
+===================== =========================== ======================================================================
+
+You will surely need to configure you internet box (or whatever else) to add port forwarding in order the webserver to be available from anywhere in the world.
+
+Create the domogik devices
+==========================
+
+Domogik device type : geoloc.position
+-------------------------------------
+
+1 parameter is needed for a domogik device creation:
+
+===================== =========================== ======================================================================
+Key                   Type                        Description
+===================== =========================== ======================================================================
+device                string                      The geolocated device id. This device id will be used in the urls.
+===================== =========================== ======================================================================
+
+Start the plugin
+================
+
+You can now start the plugin (start button) and use the created domogik devices.
+
+Set up your widgets on the user interface
+=========================================
+
+You can now place the widgets of your devices features on the user interface.
+

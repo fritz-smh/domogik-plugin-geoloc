@@ -1,0 +1,10 @@
+=========
+Changelog
+=========
+
+1.0
+===
+
+* Plugin creation
+* Supported urls : GET for tasker and test page, POST for Trip Tracker Android app
+

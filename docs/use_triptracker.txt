@@ -1,0 +1,27 @@
+===================================
+Set up Trip Tracker for this plugin
+===================================
+
+Trip Tracker
+============
+
+Trip Tracker is an Android application which can send your position on an url with the POST method. The interval can be set from 5 min to 2 hours.
+
+This is quite a basic application and 5 minutes can be too long for some usages, but it works :)
+
+Sources are available on GitHub : https://github.com/jcs/triptracker
+
+The APK can be found also on GitHub : https://github.com/jcs/triptracker/downloads
+
+Set up Trip Tracker
+===================
+
+Launch Trip Tracker and set the url like this: ::
+
+    http://<ip>:<port>/position/<device id>/
+
+Example: ::
+
+    http://192.168.1.10:40405/position/foobar/
+
+Click on **Enable Tracking** and check on the screen that no error occurs. If this is ok, you should be able to see your current position with one of Domoweb map widgets.

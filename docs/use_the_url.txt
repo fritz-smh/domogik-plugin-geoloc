@@ -1,0 +1,26 @@
+=============================================
+Use directly the url from... what you want :)
+=============================================
+
+Purpose
+=======
+
+If you plan to use your own scripts (for an embedded project) or create your own application (Android, iOS, HTML5, ....), you just need to call an url like this to use the plugin: ::
+
+    http://<ip>:<port>/position/<device id set during the device creation>/<longitude>,<latitude>
+
+Example: ::
+
+    http://192.168.1.10:40445/position/foobar/-1.6781616210925,46.790657811998
+
+If all is OK, you will get a HTTP CODE 200 and this response as text: ::
+
+    Position successfully processed (degrees): -1.6781616210925,46.790657811998
+
+Else, you will get a HTTP CODE 500 and this kind of response as text: ::
+
+    No device 'foobar' exists. 
+
+or: ::
+
+    Unrecognize position type!
