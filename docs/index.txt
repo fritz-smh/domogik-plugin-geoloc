@@ -7,6 +7,7 @@ Table Of Content
 .. toctree::
 
     /geoloc
+    /use_the_url
     /use_tasker
     /use_triptracker
     /dev
