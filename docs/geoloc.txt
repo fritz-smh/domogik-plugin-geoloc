@@ -48,6 +48,11 @@ Start the plugin
 
 You can now start the plugin (start button) and use the created domogik devices.
 
+Plugin dedicated user interface
+===============================
+
+In order to show the API and test the plugin easily, the plugin included also a HTML interface. It is available on http://127.0.0.1:40445 from your Domogik server with the default configuration.
+
 Set up your widgets on the user interface
 =========================================
 
