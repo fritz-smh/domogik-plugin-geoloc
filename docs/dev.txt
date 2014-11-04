@@ -1,0 +1,44 @@
+========================
+Development informations
+========================
+
+Tests
+=====
+
+There is no automated tests for this plugin.
+
+Timeout on sensors
+==================
+
+The timeout is set to 0 for all sensors : the tracking of a person or an object may be shut for several hours/days (at people convenience)
+
+xPL messages
+============
+
+xpl-stat
+--------
+
+The **sensor.basic** message is used: ::
+
+    xpl-stat
+    {
+    ...
+    }
+    sensor.basic
+    {
+    type=position_degrees
+    device=<device id>
+    current=<value : longitude,latitude>
+    }
+
+xpl-trig
+--------
+
+n/a
+
+xpl-cmnd
+--------
+
+n/a
+
+
