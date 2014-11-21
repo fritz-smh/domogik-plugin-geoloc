@@ -78,7 +78,6 @@ def position_post(device):
         for key in data:
             if idx < int(key[10:11]):
                 idx = int(key[10:11])
-        #print idx
         longitude = data["locations[{0}][longitude]".format(idx)]
         latitude = data["locations[{0}][latitude]".format(idx)]
         if longitude is None:

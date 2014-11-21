@@ -108,7 +108,7 @@ class GeolocManager(XplPlugin):
     def send_xpl_position_degree(self, device, value):
         """ Send xPL message on network
         """
-        self.log.debug("Position received for '{0}' : {1}".format(device, value))
+        self.log.debug(u"Position received for '{0}' : {1}".format(device, value))
         msg = XplMessage()
         msg.set_type("xpl-stat")
         msg.set_schema("sensor.basic")
