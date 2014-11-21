@@ -48,7 +48,7 @@ debug = True
 
 @app.route('/')
 def root():
-    return send_from_directory("/media/stock/domotique/git/domogik-plugin-geoloc/data/", 'index.html')
+    return send_from_directory(g.get_data_files_directory(), 'index.html')
 
 @app.route('/position/<string:device>/', methods = ["POST"])
 def position_post(device):
