@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.1
+===
+
+* Logs improvment
+
 1.0
 ===
 
