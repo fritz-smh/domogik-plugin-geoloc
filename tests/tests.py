@@ -45,7 +45,6 @@ class GeolocTestCase(PluginTestCase):
         global cfg
 
         # call he plugin url in a thread
-        #call_url("http://{0}:{1}/position/{2}".format(cfg['host'], cfg['port'], device_name))
         url = "http://{0}:{1}/position/{2}/{3}".format(cfg['host'], cfg['port'], device_name, "3,3")
         thr_url = Thread(None,
                          call_url,
@@ -119,10 +118,10 @@ if __name__ == "__main__":
 
     # create a test device
     try:
-        params = td.get_params(client_id, "geoloc.position")
+        params = td.get_params(client_id, "geoloc.position_degrees")
 
         # fill in the params
-        params["device_type"] = "geoloc.position"
+        params["device_type"] = "geoloc.position_degrees"
         params["name"] = "test_device_geoloc"
         params["reference"] = "reference"
         params["description"] = "description"

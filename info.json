@@ -32,7 +32,7 @@
         }
     ],
     "device_types": {
-        "geoloc.position": {
+        "geoloc.position_degrees": {
             "description": "GPS position",
             "id": "geoloc.position",
             "name": "GPS position",
@@ -65,8 +65,8 @@
         }
     },
     "xpl_stats": {
-        "position": {
-            "name": "Position",
+        "position_degrees": {
+            "name": "Position in degrees",
             "schema": "sensor.basic",
             "parameters": {
                 "static": [
