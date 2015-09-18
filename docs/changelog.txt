@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.2
+===
+
+* Add tests
+* Upgrade json : devices MUST BE recreated
+
 1.1
 ===
 
