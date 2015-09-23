@@ -30,7 +30,8 @@ before_script:
 script:
   - echo $TRAVIS_BUILD_DIR
   - cd $TRAVIS_BUILD_DIR
-  - dmg_testrunner -a /var/lib/domogik/domogik_packages/plugin_$DMG_PLUGIN/tests/
+#  - dmg_testrunner -a /var/lib/domogik/domogik_packages/plugin_$DMG_PLUGIN/tests/
+  - cd /var/lib/domogik/domogik_packages/plugin_$DMG_PLUGIN/ && ./start.sh
 after_script:
   - ~/domogik/src/domogik/tests/travis/travis-after.sh
 notifications:
