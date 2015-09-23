@@ -7,6 +7,7 @@ Changelog
 
 * Add tests
 * Upgrade json : devices MUST BE recreated
+* Add travis-ci
 
 1.1
 ===
