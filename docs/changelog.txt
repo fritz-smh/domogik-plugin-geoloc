@@ -5,7 +5,7 @@ Changelog
 1.2
 ===
 
-* Add tests
+* Add tests (they work only in local for now, not on travis)
 * Upgrade json : devices MUST BE recreated
 * Add travis-ci
 
