@@ -6,10 +6,10 @@
         "tags": ["gps", "geolocalisation", "tracker"],
         "dependencies": [ ],
         "description": "Allow your smartphone or anything else to send GPS data to this plugin over an url.",
-        "domogik_min_version": "0.4.0",
+        "domogik_min_version": "0.4.1",
         "name": "geoloc",
         "type": "plugin",
-        "version": "1.1"
+        "version": "1.2"
     },
     "configuration": [
         {
@@ -32,7 +32,7 @@
         }
     ],
     "device_types": {
-        "geoloc.position": {
+        "geoloc.position_degrees": {
             "description": "GPS position",
             "id": "geoloc.position",
             "name": "GPS position",
@@ -65,8 +65,8 @@
         }
     },
     "xpl_stats": {
-        "position": {
-            "name": "Position",
+        "position_degrees": {
+            "name": "Position in degrees",
             "schema": "sensor.basic",
             "parameters": {
                 "static": [

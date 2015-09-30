@@ -61,7 +61,7 @@ def position_post(device):
         # check if the device exists
         found = False
         for a_device in g.devices:
-            if device == g.get_parameter_for_feature(a_device, "xpl_stats", "position", "device"):
+            if device == g.get_parameter_for_feature(a_device, "xpl_stats", "position_degrees", "device"):
                 found = True
             break
         # device not found
@@ -111,7 +111,7 @@ def position_get(device, data):
         # check if the device exists
         found = False
         for a_device in g.devices:
-            if device == g.get_parameter_for_feature(a_device, "xpl_stats", "position", "device"):
+            if device == g.get_parameter_for_feature(a_device, "xpl_stats", "position_degrees", "device"):
                 found = True
             break
         # device not found

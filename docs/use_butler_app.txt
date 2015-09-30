@@ -1,0 +1,29 @@
+=========================================
+Set up Domogik Butler android application
+=========================================
+
+Domogik butler android application
+==================================
+
+This android application is part of the Domogik project. It is an interface to Domogik's butler. It is mainly used to speak with the butler but it also have the feature to send GPS location each X minute(s).
+
+You can find this application on Domogik website : http://www.domogik.org
+
+Set up
+======
+
+Launch the application and go in settings. In the menu **GPS configuration** :
+
+* enable **GPS tracking**
+* set the **Geoloc plugin url** with the public url (see examples below)
+* set the **Delay** to a value in minutes. The shorter the delay will be, the more the battery of your device will be used!
+
+Url: ::
+
+    http://<ip>:<port>/position/<device id>/
+
+Example: ::
+
+    http://192.168.1.10:40405/position/foobar/
+
+Restart the application.

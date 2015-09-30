@@ -8,6 +8,7 @@ Table Of Content
 
     /geoloc
     /use_the_url
+    /use_butler_app
     /use_tasker
     /use_triptracker
     /dev
