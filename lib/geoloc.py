@@ -57,6 +57,7 @@ def position_post(device):
         Sample for Android app Trip Tracker :
         data = ImmutableMultiDict([('locations[1][longitude]', u'-1.3015050539275859'), ('locations[0][time]', u'1414950119346'), ('locations[1][speed]', u'1.5556983'), ('locations[1][time]', u'1414958966722'), ('locations[1][latitude]', u'47.08956470569191'), ('locations[0][longitude]', u'-1.3015941102186852'), ('locations[0][latitude]', u'47.08935763509281'), ('locations[0][speed]', u'0.3824184')])
     """
+    print(u"Called : POST /position/{0} | data = {1}".format(device, request.form))
     try:
         # check if the device exists
         found = False
@@ -86,7 +87,7 @@ def position_post(device):
         #print("latitude = {0}".format(latitude))
         #print("longitude = {0}".format(longitude))
         position_format = "trip tracker android application"
-        g.send_xpl_position_degree(device, "{0},{1}".format(longitude, latitude))
+        g.send_xpl_position_degree(device, "{0},{1}".format(latitude, longitude))
 
     except:
         if debug:
@@ -105,8 +106,9 @@ def position_get(device, data):
         * plugin user interface
         * tasker
 
-        wget -qO- http://192.168.1.10:40445/position/fritz/-1.9781616210925,46.790657811998
+        wget -qO- http://192.168.1.10:40445/position/fritz/46.790657811998,-1.9781616210925
     """
+    print(u"Called : GET /position/{0}/{1}".format(device, data))
     try:
         # check if the device exists
         found = False
